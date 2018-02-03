@@ -757,7 +757,7 @@ bool class_respondsToSelector_inst(Class cls, SEL sel, id inst)
 
     if (!sel  ||  !cls) return NO;
 
-    // Avoids +initialize because it historically did so.   //查找方法不要传入类初始化函数
+    // Avoids +initialize because it historically did so.   //查找方法不要传入类初始化函数,看似很简单实则很复杂
     // We're not returning a callable IMP anyway.    
     imp = lookUpImpOrNil(cls, sel, inst, 
                          NO/*initialize*/, YES/*cache*/, YES/*resolver*/);

@@ -1,0 +1,38 @@
+全局变量和常量：
+
+
+int a = 123;
+static int b = 321;
+const int c = 456;
+static void __main_block_func_0(struct __main_block_impl_0 *__cself) {
+  printf("%d in this blk!",a);
+  printf("%d in this blk!",b);
+  printf("%d in this blk!",c);
+ }
+
+
+ 局部：
+ struct __main_block_impl_0 {
+  struct __block_impl impl;
+  struct __main_block_desc_0* Desc;
+  int a;
+  int *b;
+  const int c;
+  __main_block_impl_0(void *fp, struct __main_block_desc_0 *desc, int _a, int *_b, const int _c, int flags=0) : a(_a), b(_b), c(_c) {
+    impl.isa = &_NSConcreteStackBlock;
+    impl.Flags = flags;
+    impl.FuncPtr = fp;
+    Desc = desc;
+  }
+};
+
+int main(){
+
+int a = 123;
+static int b = 321;
+const int c = 456;
+
+ void(*blk)(void) = ((void (*)())&__main_block_impl_0((void *)__main_block_func_0, &__main_block_desc_0_DATA, a, &b, c));
+
+ return 1;
+}
